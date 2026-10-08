@@ -1,12 +1,12 @@
-"""ECU-GS core module -- coming soon.
+"""ECU-GS module -- coming soon.
 
-This module is part of the core contribution of ECU-GS. It will be
+This module is part of the ECU-GS implementation. It will be
 open-sourced once the paper review and our industry partner's internal
 approval process are completed. The released framework runs without it:
 the corresponding features are disabled by default in arguments/__init__.py.
 """
 
 raise ImportError(
-    "ECU-GS core module 'lidar_calibration' is coming soon and is not included in the "
+    "ECU-GS module 'lidar_calibration' is coming soon and is not included in the "
     "current open-source release."
 )
