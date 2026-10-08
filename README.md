@@ -13,27 +13,12 @@
 
 ## Overview
 
-ECU-GS reconstructs 3D scenes from a sequential RGB video and synchronized LiDAR point clouds **without COLMAP or any pre-computed camera poses**. 
+ECU-GS reconstructs 3D scenes from a sequential RGB video and synchronized LiDAR point clouds **under uncertain LiDAR-Camera extrinsics**.
 
 - **Joint uncertainty modeling** of camera poses, LiDAR-Camera extrinsics, and depth, used to weight supervision and guide densification
 - **Anchor Gaussian initialization** from LiDAR projection fused with monocular depth completion
 - **A three-stage training schedule** (Coarse → Refining → Final) driven by a joint photometric-geometric loss
 - **Iterative map optimization** with keyframe selection, map fusion, residual analysis, and uncertainty-aware Gaussian densification
-
-## Code Release Status
-
-This repository currently releases the **framework** of ECU-GS: the progressive COLMAP-free training pipeline, LiDAR-Camera data loading and projection, the renderer, and the evaluation tools. The following core modules are part of our paper's contribution and will be released **after the paper review and our industry partner's internal approval process** — stay tuned:
-
-| Module | File | Status |
-|---|---|---|
-| Joint uncertainty modeling | `utils/ecugs_uncertainty.py` | 🚧 coming soon |
-| Uncertainty-aware & joint losses (Eq. 19/26/27/29) | `trainer/ecugs_losses.py` | 🚧 coming soon |
-| Extrinsic calibration, ICP odometry, depth scale matching | `utils/lidar_calibration.py` | 🚧 coming soon |
-| Anchor-auxiliary system & hybrid initialization (Eq. 22) | `scene/anchor_auxiliary_gaussians.py` | 🚧 coming soon |
-| Geometric constraint losses | `trainer/geometric_constraints.py` | 🚧 coming soon |
-| Sky Gaussians | `utils/sky_gaussians.py` | 🚧 coming soon |
-
-The released code runs in base mode out of the box: the corresponding switches are disabled by default in `arguments/__init__.py`, and the training schedule falls back to standard behavior (uniform frame sampling, constant-threshold densification, every frame treated as a keyframe). Enabling the coming-soon flags before the modules are released will raise an explicit `ImportError`.
 
 ## Pipeline
 
